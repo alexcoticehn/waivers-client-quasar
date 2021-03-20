@@ -1,22 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+      <q-toolbar class="bg-primary">
+      <q-btn 
+        icon="menu" 
+        flat 
+        dense 
+      />
+      <q-toolbar-title class="text-center">
+        Sailor Jerry's Fantasy Hockey League
+      </q-toolbar-title>
+    </q-toolbar>
     </q-header>
 
     <q-drawer

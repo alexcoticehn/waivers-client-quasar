@@ -12,6 +12,10 @@ const { configure } = require('quasar/wrappers');
 
 module.exports = configure(function (/* ctx */) {
   return {
+    htmlVariables: {
+      title: "Sailor Jerry's Fantasy Hockey"
+    },
+
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
 
@@ -94,7 +98,17 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+        'QCard', 
+        'QInput', 
+        'QBtn',
+        'QPage',
+        'QPageContainer',
+        'QLayout',
+        'QToolbar',
+        'QToolbarTitle',
+        'QForm'
+      ]
     },
 
     // animations: 'all', // --- includes all animations

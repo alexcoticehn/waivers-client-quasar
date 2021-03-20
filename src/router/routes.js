@@ -1,10 +1,28 @@
-
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/LandingLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/Landing.vue') }
+    ]
+  },
+  {
+    path: '/roster',
+    component: () => import('layouts/MainLayout.vue'),
+    meta: {
+      requiresAuth: true
+    },
+    children: [
+      {
+        path: '',
+        name: 'MyRoster',
+        component: () => import('pages/Roster.vue')
+      },
+      {
+        path: ':id',
+        name: 'OpposingRoster',
+        component: () => import('pages/Roster.vue')
+      }
     ]
   },
 
