@@ -35,6 +35,7 @@
 import { defineComponent } from 'vue'
 import { api } from 'boot/axios'
 import { ref } from 'vue'
+import { Router } from '../router/index'
 
 export default defineComponent({
   name: 'SignInCard',
@@ -55,13 +56,12 @@ export default defineComponent({
       password,
 
       async signIn() {
-        console.log(api);
         const response = await api.post('users/login', {user: {
           username: username.value,
           password: password.value
         }});
         if (response.status == 200) {
-          this.$router.push({name: 'MyRoster'})
+          Router.push({name: 'MyRoster'})
         }
       }
     }
