@@ -17,6 +17,7 @@
       <q-input
         label="Password"
         v-model="password"
+        type="password"
         class="q-pa-sm"
         dense
       />
