@@ -19,20 +19,6 @@
       bordered
       class="bg-grey-1"
     >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
     </q-drawer>
 
     <q-page-container>
@@ -42,8 +28,6 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
-
 const linksList = [
   {
     title: 'Docs',
@@ -93,10 +77,6 @@ import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
 
   setup () {
     const leftDrawerOpen = ref(false)
