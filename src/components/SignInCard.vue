@@ -11,14 +11,16 @@
       <q-input
         label="Username"
         v-model="username"
-        class="q-pa-sm"
+        :rules="[val => !!val || 'Username is required']"
+        class="q-px-sm q-pb-lg q-pt-sm"
         dense
       />
       <q-input
         label="Password"
         v-model="password"
         type="password"
-        class="q-pa-sm"
+        :rules="[val => !!val || 'Password is required']"
+        class="q-px-sm q-pb-lg"
         dense
       />
     </q-card>
