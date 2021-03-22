@@ -9,16 +9,16 @@
       class="q-mx-auto"
     >
       <q-input
-        label="Username"
-        v-model="username"
-        :rules="[val => !!val || 'Username is required']"
-        class="q-px-sm q-pb-lg q-pt-sm"
-        dense
-      />
+    label="Username"
+    v-model="username"
+    :rules="[val => !!val || 'Username is required']"
+    class="q-px-sm q-pb-lg q-pt-sm"
+    dense
+  />
       <q-input
         label="Password"
-        v-model="password"
         type="password"
+        v-model="password"
         :rules="[val => !!val || 'Password is required']"
         class="q-px-sm q-pb-lg"
         dense
@@ -35,41 +35,40 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { api } from 'boot/axios'
-import { ref } from 'vue'
+import { ref } from 'vue';
+import { api } from 'boot/axios';
 import { Router } from '../router/index'
 
-export default defineComponent({
+export default {
   name: 'SignInCard',
-  props: {
-    loading: Boolean
-  },
-  data: function() {
-    return {
-      showLoadingButton: false
-    }
-  },
   setup() {
-    const username = ref(null);
-    const password = ref(null);
+    let username = ref(null);
+    let password = ref(null);
+    let showLoadingButton = ref(false);
+
+    async function signIn() {
+      showLoadingButton.value = true;
+        const response = api.post('users/login', {user: {
+          username: username.value,
+          password: password.value
+        }})
+        .then((response) => {
+            Router.push({name: 'MyRoster'});
+        })
+        .catch((response) => {
+            showLoadingButton.value = false;
+            console.log(response.response.data.errors.message);
+        });
+    }
 
     return {
       username,
       password,
-
-      async signIn() {
-        const response = await api.post('users/login', {user: {
-          username: username.value,
-          password: password.value
-        }});
-        if (response.status == 200) {
-          Router.push({name: 'MyRoster'})
-        }
-      }
+      showLoadingButton,
+      signIn
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
