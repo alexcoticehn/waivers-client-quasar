@@ -9,12 +9,12 @@
       class="q-mx-auto"
     >
       <q-input
-    label="Username"
-    v-model="username"
-    :rules="[val => !!val || 'Username is required']"
-    class="q-px-sm q-pb-lg q-pt-sm"
-    dense
-  />
+        label="Username"
+        v-model="username"
+        :rules="[val => !!val || 'Username is required']"
+        class="q-px-sm q-pb-lg q-pt-sm"
+        dense
+      />
       <q-input
         label="Password"
         type="password"
