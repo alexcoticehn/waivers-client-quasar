@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <h2 class="text-center">
+    <h2 class="text-center fixed">
       Sailor Jerry's Fantasy Hockey League
     </h2>
     <sign-in-card />
