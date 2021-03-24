@@ -15,11 +15,7 @@
         v-model="password"
       />
     </q-card>
-    <q-btn
-      label="Sign In"
-      type="submit"
-      color="primary"
-      class="q-mt-sm full-width"
+    <submit-button
       :loading="showLoadingButton"
     />
   </q-form>
@@ -30,14 +26,16 @@ import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../router/index';
 import { useQuasar } from 'quasar';
-import PasswordInput from './PasswordInput.vue'
+import PasswordInput from './PasswordInput.vue';
 import UsernameInput from './UsernameInput.vue';
+import SubmitButton from './SubmitButton';
 
 export default {
-  name: 'SignInCard',
+  name: 'SignInForm',
   components: {
     PasswordInput,
-    UsernameInput
+    UsernameInput,
+    SubmitButton
   },
   setup() {
     const $q = useQuasar();
