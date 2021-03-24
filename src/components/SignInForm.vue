@@ -18,6 +18,7 @@
     <submit-button
       :loading="showLoadingButton"
     />
+    <forgot-password-link />
   </q-form>
 </template>
 
@@ -29,13 +30,15 @@ import { useQuasar } from 'quasar';
 import PasswordInput from './PasswordInput.vue';
 import UsernameInput from './UsernameInput.vue';
 import SubmitButton from './SubmitButton';
+import ForgotPasswordLink from './ForgotPasswordLink.vue';
 
 export default {
   name: 'SignInForm',
   components: {
     PasswordInput,
     UsernameInput,
-    SubmitButton
+    SubmitButton,
+    ForgotPasswordLink
   },
   setup() {
     const $q = useQuasar();

@@ -3,7 +3,16 @@ const routes = [
     path: '/',
     component: () => import('layouts/LandingLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Landing.vue') }
+      { 
+        path: '', 
+        name: 'Landing',
+        component: () => import('pages/Landing.vue') 
+      },
+      {
+        path: '/forgot',
+        name: 'ForgotPassword',
+        component: () => import('pages/ForgotPassword.vue')
+      }
     ]
   },
   {
