@@ -37,11 +37,13 @@
 <script>
 import { ref } from 'vue';
 import { api } from 'boot/axios';
-import { Router } from '../router/index'
+import { Router } from '../router/index';
+import { useQuasar } from 'quasar';
 
 export default {
   name: 'SignInCard',
   setup() {
+    const $q = useQuasar();
     let username = ref(null);
     let password = ref(null);
     let showLoadingButton = ref(false);
@@ -52,12 +54,16 @@ export default {
           username: username.value,
           password: password.value
         }})
-        .then((response) => {
+        .then(() => {
             Router.push({name: 'MyRoster'});
         })
         .catch((response) => {
             showLoadingButton.value = false;
-            console.log(response.response.data.errors.message);
+            $q.notify({
+              type: 'negative',
+              message: response.response.data.errors.message,
+              caption: "If the error persists, please contact your site administrator"
+            })
         });
     }
 
