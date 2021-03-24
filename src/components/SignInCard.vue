@@ -15,13 +15,8 @@
         class="q-px-sm q-pb-lg q-pt-sm"
         dense
       />
-      <q-input
-        label="Password"
-        type="password"
+      <password-input
         v-model="password"
-        :rules="[val => !!val || 'Password is required']"
-        class="q-px-sm q-pb-lg"
-        dense
       />
     </q-card>
     <q-btn
@@ -39,9 +34,13 @@ import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../router/index';
 import { useQuasar } from 'quasar';
+import PasswordInput from '../components/PasswordInput'
 
 export default {
   name: 'SignInCard',
+  components: {
+    PasswordInput
+  },
   setup() {
     const $q = useQuasar();
     let username = ref(null);
