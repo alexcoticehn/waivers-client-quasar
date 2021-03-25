@@ -24,6 +24,8 @@ import { useQuasar } from 'quasar';
 import SubmitButton from '../buttons/SubmitButton';
 import EmailInput from '../inputs/EmailInput';
 import { ref } from 'vue';
+import { api } from 'boot/axios';
+import { Router } from '../../router/index';
 
 export default {
   name: 'SendResetEmailForm',
@@ -38,6 +40,31 @@ export default {
 
     async function sendEmail() {
       showLoadingButton.value = true;
+      const response = api.put('users/reset/send', {user: {
+          email: email.value
+        }})
+        .then((response) => {
+            showLoadingButton.value = false;
+            $q.notify({
+              type: 'postive',
+              message: response.data.message,
+              caption: "Please follow the link sent to your email to finish resetting your password"
+            })
+        })
+        .catch((response) => {
+            showLoadingButton.value = false;
+            $q.notify({
+              type: 'negative',
+              message: response.response.data.errors.message,
+              caption: "If the error persists, please contact your site administrator"
+            })
+        });
+    }
+
+    return {
+      showLoadingButton,
+      email,
+      sendEmail
     }
   }
 }
