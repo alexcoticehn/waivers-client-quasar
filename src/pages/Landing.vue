@@ -6,7 +6,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import SignInForm from 'components/SignInForm.vue'
+import SignInForm from 'components/forms/SignInForm.vue'
 
 export default defineComponent({
   name: 'Landing',

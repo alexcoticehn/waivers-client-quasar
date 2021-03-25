@@ -27,9 +27,9 @@ import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../../router/index';
 import { useQuasar } from 'quasar';
-import PasswordInput from '../PasswordInput.vue';
-import UsernameInput from '../UsernameInput.vue';
-import SubmitButton from './buttons/SubmitButton';
+import PasswordInput from '../inputs/PasswordInput.vue';
+import UsernameInput from '../inputs/UsernameInput.vue';
+import SubmitButton from '../buttons/SubmitButton';
 import ForgotPasswordLink from '../buttons/ForgotPasswordLink.vue';
 
 export default {
