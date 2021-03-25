@@ -14,6 +14,7 @@
     </q-card>
     <submit-button
       :loading="showLoadingButton"
+      label="Reset Password"
     />
   </q-form>
 </template>
@@ -41,3 +42,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+    #send-email {
+        width: 300px;
+    }
+</style>
