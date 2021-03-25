@@ -12,6 +12,11 @@ const routes = [
         path: '/forgot',
         name: 'ForgotPassword',
         component: () => import('pages/ForgotPassword.vue')
+      },
+      {
+        path: '/reset/:token',
+        name: 'ResetPassword',
+        component: () => import('pages/ResetPassword.vue')
       }
     ]
   },
@@ -28,7 +33,7 @@ const routes = [
         component: () => import('pages/Roster.vue')
       },
       {
-        path: ':id',
+        path: '/:id',
         name: 'OpposingRoster',
         component: () => import('pages/Roster.vue')
       }

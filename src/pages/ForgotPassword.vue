@@ -8,7 +8,6 @@ import SendResetEmailForm from "../components/forms/SendResetEmailForm.vue"
 export default  {
   components: { 
     SendResetEmailForm 
-  },
-  name: 'ForgotPassword'
+  }
 }
 </script>
