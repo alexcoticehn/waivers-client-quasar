@@ -1,9 +1,14 @@
 <template>
-  <h2>Forgot password page</h2>
+  <send-reset-email-form />
 </template>
 
 <script>
-export default {
+import SendResetEmailForm from "../components/forms/SendResetEmailForm.vue"
+
+export default  {
+  components: { 
+    SendResetEmailForm 
+  },
   name: 'ForgotPassword'
 }
 </script>
