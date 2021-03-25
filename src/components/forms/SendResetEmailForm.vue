@@ -1,6 +1,6 @@
 <template>
   <q-form
-    class="fixed-center"
+    class="fixed-center form-card"
     id="send-email"
     @submit="sendEmail"
   >
@@ -42,9 +42,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-    #send-email {
-        width: 300px;
-    }
-</style>

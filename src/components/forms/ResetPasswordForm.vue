@@ -1,6 +1,6 @@
 <template>
   <q-form
-    class="fixed-center"
+    class="fixed-center form-card"
     id="reset-password"
     @submit="resetPassword"
   >

@@ -8,3 +8,7 @@
     </q-page-container>
   </q-layout>
 </template>
+
+<style lang="scss">
+  @import '../css/public-pages.scss';
+</style>

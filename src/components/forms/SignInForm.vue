@@ -1,7 +1,6 @@
 <template>
   <q-form
-    class="fixed-center" 
-    id="sign-in"
+    class="fixed-center form-card"
     @submit="signIn"
   >
     <q-card
@@ -74,9 +73,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-    #sign-in {
-        width: 300px;
-    }
-</style>
