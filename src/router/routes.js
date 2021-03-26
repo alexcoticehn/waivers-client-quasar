@@ -38,13 +38,6 @@ const routes = [
         component: () => import('pages/Roster.vue')
       }
     ]
-  },
-
-  // Always leave this as last one,
-  // but you can also remove it
-  {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
   }
 ]
 

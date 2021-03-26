@@ -5,13 +5,11 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
 import SignInForm from 'components/forms/SignInForm.vue'
 
-export default defineComponent({
-  name: 'Landing',
+export default {
   components: {
     SignInForm
   }
-})
+}
 </script>
