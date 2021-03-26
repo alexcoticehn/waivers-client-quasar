@@ -6,7 +6,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(history({
-    index: '/index.template.html'
+    index: '/index.html'
 }));
 app.use(serveStatic(__dirname + '/dist/spa'));
 app.listen(port);
