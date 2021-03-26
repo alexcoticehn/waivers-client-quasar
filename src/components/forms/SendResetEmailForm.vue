@@ -46,9 +46,9 @@ export default {
         .then((response) => {
             showLoadingButton.value = false;
             $q.notify({
-              type: 'postive',
+              type: 'positive',
               message: response.data.message,
-              caption: "Please follow the link sent to your email to finish resetting your password"
+              caption: "Please follow the link sent to your email to reset your password"
             })
         })
         .catch((response) => {
