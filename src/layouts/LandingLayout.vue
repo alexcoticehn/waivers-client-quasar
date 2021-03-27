@@ -1,8 +1,10 @@
 <template>
   <q-layout>
-    <h2 class="text-center fixed-top">
-      Sailor Jerry's Fantasy Hockey League
-    </h2>
+    <div class="row">
+      <h2 class="text-center col">
+        Sailor Jerry's Fantasy Hockey League
+      </h2>
+    </div>
     <q-page-container>
       <router-view />
     </q-page-container>

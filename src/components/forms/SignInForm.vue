@@ -1,6 +1,6 @@
 <template>
   <q-form
-    class="fixed-center form-card"
+    class="form-card"
     @submit="signIn"
   >
     <q-card

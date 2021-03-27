@@ -1,6 +1,8 @@
 <template>
   <q-page>
-    <sign-in-form />
+    <div class="row justify-center">
+      <sign-in-form />
+    </div>
   </q-page>
 </template>
 
