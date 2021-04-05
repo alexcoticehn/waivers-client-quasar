@@ -1,5 +1,6 @@
 import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
+import session from './session'
 
 // import example from './module-example'
 
