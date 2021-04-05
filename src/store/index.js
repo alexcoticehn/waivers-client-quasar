@@ -15,7 +15,7 @@ import { createStore } from 'vuex'
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
-      // example
+      session
     },
 
     // enable strict mode (adds overhead!)
