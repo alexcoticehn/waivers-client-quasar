@@ -1,2 +1,3 @@
-export function someMutation (/* state */) {
+export const setIsAuthenticated = (state, isAuthenticated) => {
+    state.isAuthenticated = isAuthenticated;
 }
