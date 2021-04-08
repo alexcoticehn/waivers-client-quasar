@@ -29,10 +29,11 @@ export default route(function ( { store } ) {
   })
 
   Router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !store.state.isAuthenticated) {
+    if (to.meta.requiresAuth && !store.state.session.isAuthenticated) {
       next({name: 'Landing'});
+    } else {
+      next();
     }
-    next();
   })
 
   return Router
