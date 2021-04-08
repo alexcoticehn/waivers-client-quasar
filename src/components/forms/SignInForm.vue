@@ -26,6 +26,7 @@ import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../../router/index';
 import { useQuasar } from 'quasar';
+import { useStore } from 'vuex'
 import PasswordInput from '../inputs/PasswordInput.vue';
 import UsernameInput from '../inputs/UsernameInput.vue';
 import SubmitButton from '../buttons/SubmitButton';
@@ -41,6 +42,7 @@ export default {
   },
   setup() {
     const $q = useQuasar();
+    const $store = useStore();
     let username = ref(null);
     let password = ref(null);
     let showLoadingButton = ref(false);
@@ -52,9 +54,11 @@ export default {
           password: password.value
         }})
         .then(() => {
+            $store.commit('session/setIsAuthenticated', true);
             Router.push({name: 'MyRoster'});
         })
         .catch((response) => {
+            $store.commit('session/setIsAuthenticated', false);
             showLoadingButton.value = false;
             $q.notify({
               type: 'negative',
