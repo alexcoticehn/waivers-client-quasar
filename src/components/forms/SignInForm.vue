@@ -49,7 +49,7 @@ export default {
 
     async function signIn() {
       showLoadingButton.value = true;
-        const response = api.post('users/login', {user: {
+        api.post('users/login', {user: {
           username: username.value,
           password: password.value
         }})
