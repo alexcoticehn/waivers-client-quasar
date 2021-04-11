@@ -8,10 +8,26 @@
 
 <script>
 import SignInForm from 'components/forms/SignInForm.vue'
+import { Loading } from 'quasar'
 
 export default {
   components: {
     SignInForm
+  },
+  beforeRouteEnter(to, from, next) {
+    Loading.show();
+    next((app) => {
+      app.$api.get('users/token/verify', {})
+        .then(() => {
+          Loading.hide();
+          app.$store.commit('session/setIsAuthenticated', true);
+          app.$router.replace({name: 'MyRoster'});
+        })
+        .catch(() => {
+          Loading.hide();
+          app.$store.commit('session/setIsAuthenticated', false);
+        })
+      })
   }
 }
 </script>
