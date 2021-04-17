@@ -5,7 +5,9 @@
       <q-btn 
         icon="menu" 
         flat 
-        dense 
+        dense
+        aria-label="menu"
+        @click="toggleLeftDrawer"
       />
       <q-toolbar-title class="text-center">
         Sailor Jerry's Fantasy Hockey League
@@ -19,6 +21,19 @@
       bordered
       class="bg-grey-1"
     >
+      <q-list>
+        <q-item-label
+          header
+          class='text-grey-8'
+        >
+          Essential Links
+        </q-item-label>
+        <menu-link 
+          v-for='link in menuLinks'
+          :key="link.title"
+          v-bind="link"
+        />
+      </q-list>
     </q-drawer>
 
     <q-page-container>
@@ -74,15 +89,18 @@ const linksList = [
 ];
 
 import { defineComponent, ref } from 'vue'
+import MenuLink from '../components/buttons/drawerMenu/MenuLink'
 
 export default defineComponent({
   name: 'MainLayout',
-
+  components: {
+    MenuLink
+  },
   setup () {
     const leftDrawerOpen = ref(false)
 
     return {
-      essentialLinks: linksList,
+      menuLinks: linksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
