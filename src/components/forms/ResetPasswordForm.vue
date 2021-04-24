@@ -17,13 +17,14 @@
     </q-card>
     <submit-button
       :loading="showLoadingButton"
+      label="Reset Password"
     />
   </q-form>
 </template>
 
 <script>
-import PasswordInput from './PasswordInput';
-import SubmitButton from './SubmitButton';
+import PasswordInput from '../inputs/PasswordInput';
+import SubmitButton from '../buttons/SubmitButton';
 import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../../router/index';
@@ -37,12 +38,14 @@ export default {
   },
   setup() {
     const $q = useQuasar();
+    const $store = useStore();
     let showLoadingButton = ref(false);
     let password = ref(null);
     let passwordConfirm = ref(null);
 
     async function resetPassword() {
       showLoadingButton.value = true;
+
     }
 
     return {
