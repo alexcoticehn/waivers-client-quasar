@@ -17,7 +17,7 @@ export default {
   beforeRouteEnter(to, from, next) {
     Loading.show();
     next((app) => {
-      app.$api.get('users/token/verify', {})
+      app.$api.get('auth/token/verify', {})
         .then(() => {
           Loading.hide();
           app.$store.commit('session/setIsAuthenticated', true);
