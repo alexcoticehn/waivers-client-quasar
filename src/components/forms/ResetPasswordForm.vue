@@ -29,6 +29,7 @@ import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../../router/index';
 import { useQuasar } from 'quasar';
+import { useStore } from 'vuex'
 
 export default {
   name: 'ResetPasswordForm',
@@ -45,7 +46,20 @@ export default {
 
     async function resetPassword() {
       showLoadingButton.value = true;
-
+      if (password.value != passwordConfirm.value) {
+        showLoadingButton.value = false;
+        $q.notify({
+          type: 'negative',
+          message: "Passwords do not match",
+          caption: "Please re-enter your new password and try again"
+        })
+      } else {
+        api.patch('/users/reset/confirm', {
+          token: 'placeholder',
+          id: 'placeholder',
+          password: passwordConfirm
+        })
+      }
     }
 
     return {
