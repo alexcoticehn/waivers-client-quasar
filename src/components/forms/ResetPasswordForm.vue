@@ -48,6 +48,8 @@ export default {
       showLoadingButton.value = true;
       if (password.value != passwordConfirm.value) {
         showLoadingButton.value = false;
+        password.value = '';
+        passwordConfirm.value = '';
         $q.notify({
           type: 'negative',
           message: "Passwords do not match",
