@@ -2,7 +2,8 @@ import { api } from 'boot/axios';
 import { Loading } from 'quasar';
 
 export function verifyToken ({ commit }) {
-    api.get('auth/token/verify', {})
+    return api.get('auth/token/verify', {});
+    /*
     .then(() => {
         commit('setIsAuthenticated', true);
         this.$router.replace({name: 'MyRoster'});
@@ -12,4 +13,5 @@ export function verifyToken ({ commit }) {
         commit('setIsAuthenticated', false);
         Loading.hide();
     })
+    */
 }

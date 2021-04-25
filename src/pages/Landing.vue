@@ -14,9 +14,18 @@ export default {
   components: {
     SignInForm
   },
-  preFetch({ store }) {
+  preFetch({ store, redirect}) {
     Loading.show();
-    store.dispatch('session/verifyToken');
+    return store.dispatch('session/verifyToken')
+    .then(() => {
+      store.commit('session/setIsAuthenticated', true);
+      Loading.hide();
+      redirect({name: 'MyRoster'});
+    })
+    .catch(() => {
+      store.commit('session/setIsAuthenticated', false);
+      Loading.hide();
+    });
   }
 }
 </script>

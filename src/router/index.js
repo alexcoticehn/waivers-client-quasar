@@ -28,14 +28,6 @@ export default route(function ( { store } ) {
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
   })
 
-  Router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !store.state.session.isAuthenticated) {
-      next({name: 'Landing'});
-    } else {
-      next();
-    }
-  })
-
   return Router
 })
 
