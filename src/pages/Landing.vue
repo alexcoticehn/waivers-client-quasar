@@ -14,20 +14,9 @@ export default {
   components: {
     SignInForm
   },
-  beforeRouteEnter(to, from, next) {
+  preFetch({ store }) {
     Loading.show();
-    next((app) => {
-      app.$api.get('auth/token/verify', {})
-        .then(() => {
-          Loading.hide();
-          app.$store.commit('session/setIsAuthenticated', true);
-          app.$router.replace({name: 'MyRoster'});
-        })
-        .catch(() => {
-          Loading.hide();
-          app.$store.commit('session/setIsAuthenticated', false);
-        })
-      })
+    store.dispatch('session/verifyToken');
   }
 }
 </script>
