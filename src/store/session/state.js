@@ -1,5 +1,7 @@
 export default function () {
   return {
-    isAuthenticated: false
+    isAuthenticated: false,
+    passwordResetToken: '',
+    userId: ''
   }
 }
