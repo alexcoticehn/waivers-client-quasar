@@ -1,6 +1,6 @@
 <template>
   <q-form
-    class="fixed-center form-card"
+    class="form-card"
     id="reset-password"
     @submit="resetPassword"
   >
@@ -27,7 +27,6 @@ import PasswordInput from '../inputs/PasswordInput';
 import SubmitButton from '../buttons/SubmitButton';
 import { ref } from 'vue';
 import { api } from 'boot/axios';
-import { Router } from '../../router/index';
 import { useQuasar } from 'quasar';
 import { useStore } from 'vuex'
 
@@ -57,9 +56,15 @@ export default {
         })
       } else {
         api.patch('/users/reset/confirm', {
-          token: 'placeholder',
-          id: 'placeholder',
+          token: $store.state.session.passwordResetToken,
+          id: $store.state.session.userId,
           password: passwordConfirm
+        })
+        .then((response) => {
+
+        })
+        .catch((response) => {
+
         })
       }
     }
