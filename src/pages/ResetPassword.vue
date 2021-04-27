@@ -18,7 +18,6 @@ export default {
     ResetPasswordForm
   },
   preFetch({ store, currentRoute, redirect }) {
-    console.log(currentRoute.params.token);
     return store.dispatch('session/verifyPasswordResetToken', currentRoute.params.token)
     .then((response) => {
       store.commit('session/setFirstName', response.data.firstname);

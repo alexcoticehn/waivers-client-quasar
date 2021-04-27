@@ -9,3 +9,11 @@ export function verifyPasswordResetToken({}, reset_token) {
         token: reset_token
     });
 }
+
+export function resetPassword({ state }, password) {
+    return api.patch('users/reset/confirm', {
+        token: state.passwordResetToken,
+        id: state.userId,
+        password: password
+    })
+}

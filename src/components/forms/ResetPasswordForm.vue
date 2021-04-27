@@ -25,8 +25,8 @@
 <script>
 import PasswordInput from '../inputs/PasswordInput';
 import SubmitButton from '../buttons/SubmitButton';
+import { Router } from '../../router/index';
 import { ref } from 'vue';
-import { api } from 'boot/axios';
 import { useQuasar } from 'quasar';
 import { useStore } from 'vuex'
 
@@ -55,16 +55,19 @@ export default {
           caption: "Please re-enter your new password and try again"
         })
       } else {
-        api.patch('/users/reset/confirm', {
-          token: $store.state.session.passwordResetToken,
-          id: $store.state.session.userId,
-          password: passwordConfirm
-        })
-        .then((response) => {
-
+        return $store.dispatch('session/resetPassword', passwordConfirm.value)
+        .then(() => {
+          $store.commit('session/setIsAuthenticated', true);
+          $store.commit('session/setPasswordResetToken', '');
+          Router.push({name: 'MyRoster'});
         })
         .catch((response) => {
-
+          $q.notify({
+            type: 'negative',
+            message: response.date.errors.message,
+            caption: "If the error persists, please contact your site administrator"
+          })
+          $store.commit('session/setIsAuthenticated', false);
         })
       }
     }
