@@ -9,3 +9,7 @@ export const setPasswordResetToken = (state, passwordResetToken) => {
 export const setUserId = (state, userId) => {
     state.userId = userId;
 }
+
+export const setFirstName = (state, firstName) => {
+    state.firstName = firstName;
+}
