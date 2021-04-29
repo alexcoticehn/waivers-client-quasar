@@ -1,4 +1,4 @@
-/// <reference path="cypress" />
+// <reference path="cypress" />
 /// <reference path="../support/index.d.ts" />
 
 // Use `cy.dataCy` custom command for more robust tests
