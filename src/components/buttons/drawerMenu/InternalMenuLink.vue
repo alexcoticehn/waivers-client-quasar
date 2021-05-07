@@ -1,9 +1,7 @@
 <template>
   <q-item
     clickable
-    tag='a'
-    target='_blank'
-    :href='link'
+    :to="{name: routeName}"
   >
     <q-item-section
       v-if='icon'
@@ -32,11 +30,11 @@ export default {
       type: String,
       default: ''
     },
-    link: {
-      type: String,
-      default: '#'
-    },
     icon: {
+      type: String,
+      default: ''
+    },
+    routeName: {
       type: String,
       default: ''
     }
