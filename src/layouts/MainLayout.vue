@@ -60,11 +60,6 @@ export default defineComponent({
   components: {
     MenuLink
   },
-  preFetch({ store, redirect }) {
-    if (!store.state.session.isAuthenticated) {
-      redirect({name: 'Landing'});
-    }
-  },
   setup () {
     const leftDrawerOpen = ref(false)
 
