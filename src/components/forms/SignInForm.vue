@@ -9,13 +9,16 @@
     >
       <username-input
         v-model="username"
+        for="username-input"
       />
       <password-input
         v-model="password"
+        for="password-input"
       />
     </q-card>
     <submit-button
       :loading="showLoadingButton"
+      id="submit-btn"
     />
     <forgot-password-link />
   </q-form>
@@ -26,6 +29,7 @@ import { ref } from 'vue';
 import { api } from 'boot/axios';
 import { Router } from '../../router/index';
 import { useQuasar } from 'quasar';
+import { useStore } from 'vuex'
 import PasswordInput from '../inputs/PasswordInput.vue';
 import UsernameInput from '../inputs/UsernameInput.vue';
 import SubmitButton from '../buttons/SubmitButton';
@@ -41,20 +45,23 @@ export default {
   },
   setup() {
     const $q = useQuasar();
+    const $store = useStore();
     let username = ref(null);
     let password = ref(null);
     let showLoadingButton = ref(false);
 
     async function signIn() {
       showLoadingButton.value = true;
-        const response = api.post('users/login', {user: {
+        api.post('users/login', {user: {
           username: username.value,
           password: password.value
         }})
         .then(() => {
+            $store.commit('session/setIsAuthenticated', true);
             Router.push({name: 'MyRoster'});
         })
         .catch((response) => {
+            $store.commit('session/setIsAuthenticated', false);
             showLoadingButton.value = false;
             $q.notify({
               type: 'negative',

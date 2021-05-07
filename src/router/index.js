@@ -13,7 +13,7 @@ import routes from './routes'
 
 let Router = null;
 
-export default route(function (/* { store, ssrContext } */) {
+export default route(function ( { store } ) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory

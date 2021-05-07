@@ -5,7 +5,9 @@
       <q-btn 
         icon="menu" 
         flat 
-        dense 
+        dense
+        aria-label="menu"
+        @click="toggleLeftDrawer"
       />
       <q-toolbar-title class="text-center">
         Sailor Jerry's Fantasy Hockey League
@@ -19,6 +21,24 @@
       bordered
       class="bg-grey-1"
     >
+      <q-list>
+        <q-item-label
+          header
+          class='text-grey-8'
+        >
+          Main Menu
+        </q-item-label>
+        <internal-menu-link
+          v-for='link in internalLinks'
+          :key="link.title"
+          v-bind="link"
+        />
+        <external-menu-link 
+          v-for='link in menuLinks'
+          :key="link.title"
+          v-bind="link"
+        />
+      </q-list>
     </q-drawer>
 
     <q-page-container>
@@ -30,59 +50,38 @@
 <script>
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: "Sailor Jerry's Discord",
+    caption: 'Communicate with the league',
+    icon: 'forum',
+    link: 'https://discord.com/channels/782649936264036383/'
   }
 ];
 
+const internalLinksList = [
+  {
+    title: "Sailor Jerry's Lottery Simulator",
+    caption: "Simulate the upcoming draft lottery",
+    icon: 's_casino',
+    routeName: 'LotterySimulator'
+  }
+]
+
 import { defineComponent, ref } from 'vue'
+import InternalMenuLink from '../components/buttons/drawerMenu/InternalMenuLink.vue';
+import ExternalMenuLink from '../components/buttons/drawerMenu/ExternalMenuLink'
 
 export default defineComponent({
   name: 'MainLayout',
-
+  components: {
+    ExternalMenuLink,
+    InternalMenuLink
+  },
   setup () {
     const leftDrawerOpen = ref(false)
 
     return {
-      essentialLinks: linksList,
+      menuLinks: linksList,
+      internalLinks: internalLinksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
