@@ -33,9 +33,14 @@ const routes = [
         component: () => import('pages/Roster.vue')
       },
       {
-        path: '/:id',
+        path: ':id',
         name: 'OpposingRoster',
         component: () => import('pages/Roster.vue')
+      },
+      {
+        path: '/simulator',
+        name: 'LotterySimulator',
+        component: () => import('pages/LotterySimulator.vue')
       }
     ]
   }
