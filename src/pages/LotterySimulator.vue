@@ -3,20 +3,30 @@
     <h3 class="text-center">
       Welcome to the Sailor Jerry's Lottery Simulator!
     </h3>
+    <div class="row justify-center q-mb-xl">
+      <q-form
+        class="form-card"
+        @submit="runLottery"
+      >
+        <submit-button
+          label="Run Lottery Simulation"
+          id="lottery-submit-btn"
+        />
+      </q-form>
+    </div>
     <div>
-      <q-table 
-        title='Lottery Odds'
+      <lottery-odds-table
         :rows='rows'
         :columns='columns'
-        row-key='team'
-        hide-pagination
-        :pagination='pagination'
       />
     </div>
   </q-page>
 </template>
 
 <script>
+import LotteryOddsTable from "../components/tables/LotteryOddsTable.vue"
+import SubmitButton from "../components/buttons/SubmitButton"
+
 const columns = [
     { name: 'team', label: 'Team', field: row => row.team, align: 'left' },
     { name: 'owner', label: 'Owner', field: 'owner', align: 'left' },
@@ -36,18 +46,20 @@ const rows = [
     { team: "Don't Be Saad", owner: "Dimitri Filipovic", odds: 0 }
 ]
 
-const pagination = {
-    sortBy: 'odds',
-    descending: true,
-    rowsPerPage: 0
-}
-
 export default {
+    components: { 
+        LotteryOddsTable,
+        SubmitButton
+    },
     data() {
         return {
             rows: rows,
-            columns: columns,
-            pagination: pagination
+            columns: columns
+        }
+    },
+    methods: {
+        runLottery() {
+            console.log('test');
         }
     }
 }
