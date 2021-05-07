@@ -3,6 +3,7 @@
     title='Lottery Odds'
     :rows='rows'
     :columns='columns'
+    :visible-columns='visibleColumns'
     row-key='team'
     hide-pagination
     :pagination='pagination'
@@ -26,7 +27,8 @@ export default {
     },
     props: {
         columns: Object,
-        rows: Object
+        rows: Object,
+        visibleColumns: Array
     }
 }
 </script>
