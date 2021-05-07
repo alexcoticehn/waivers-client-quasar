@@ -68,7 +68,11 @@ export default {
                     winningTeam = team;
                 }
             })
-            console.log(winningTeam.team);
+            this.$q.notify({
+              type: 'positive',
+              message: winningTeam.team + ' has won the 1st overall pick!',
+              caption: "You may run the lottery as many times as you like"
+            })
         }
     }
 }
