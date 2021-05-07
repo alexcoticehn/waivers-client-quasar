@@ -47,6 +47,9 @@ module.exports = configure(function (/* ctx */) {
 
       'roboto-font', // optional, you are not bound to it
       'material-icons', // optional, you are not bound to it
+      'material-icons-outlined',
+      'material-icons-round',
+      'material-icons-sharp'
     ],
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
