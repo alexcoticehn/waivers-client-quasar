@@ -28,7 +28,12 @@
         >
           Main Menu
         </q-item-label>
-        <menu-link 
+        <internal-menu-link
+          v-for='link in internalLinks'
+          :key="link.title"
+          v-bind="link"
+        />
+        <external-menu-link 
           v-for='link in menuLinks'
           :key="link.title"
           v-bind="link"
@@ -46,25 +51,37 @@
 const linksList = [
   {
     title: "Sailor Jerry's Discord",
-    caption: 'Discord',
-    icon: 'chat',
+    caption: 'Communicate with the league',
+    icon: 'forum',
     link: 'https://discord.com/channels/782649936264036383/'
   }
 ];
 
+const internalLinksList = [
+  {
+    title: "Sailor Jerry's Lottery Simulator",
+    caption: "Simulate the upcoming draft lottery",
+    icon: 's_casino',
+    routeName: 'LotterySimulator'
+  }
+]
+
 import { defineComponent, ref } from 'vue'
-import MenuLink from '../components/buttons/drawerMenu/MenuLink'
+import InternalMenuLink from '../components/buttons/drawerMenu/InternalMenuLink.vue';
+import ExternalMenuLink from '../components/buttons/drawerMenu/ExternalMenuLink'
 
 export default defineComponent({
   name: 'MainLayout',
   components: {
-    MenuLink
+    ExternalMenuLink,
+    InternalMenuLink
   },
   setup () {
     const leftDrawerOpen = ref(false)
 
     return {
       menuLinks: linksList,
+      internalLinks: internalLinksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
