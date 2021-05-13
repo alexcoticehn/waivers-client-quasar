@@ -1,5 +1,7 @@
 <template>
-  <send-reset-email-form />
+  <div class="row justify-center">
+    <send-reset-email-form />
+  </div>
 </template>
 
 <script>
