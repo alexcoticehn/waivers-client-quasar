@@ -24,8 +24,8 @@ describe('Landing Page', () => {
       .type('acoticehn');
     cy.get('[data-cy=password-input]')
       .type('password');
-    cy.get('[data-cy=submit-btn]')
-      .click();
+    cy.get('[data-cy=login-form]')
+      .submit();
     cy.url().should('eql', Cypress.config().baseUrl + 'roster');
   });
 
@@ -42,8 +42,8 @@ describe('Landing Page', () => {
       .type('acoticehn');
     cy.get('[data-cy=password-input]')
       .type('password');
-    cy.get('[data-cy=submit-btn]')
-      .click();
+    cy.get('[data-cy=login-form]')
+      .submit();
     cy.url().should('eql', Cypress.config().baseUrl);
   });
 });

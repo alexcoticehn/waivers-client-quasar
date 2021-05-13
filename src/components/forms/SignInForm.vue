@@ -2,6 +2,7 @@
   <q-form
     class="form-card"
     @submit="signIn"
+    data-cy="login-form"
   >
     <q-card
       bordered
@@ -18,7 +19,6 @@
     </q-card>
     <submit-button
       :loading="showLoadingButton"
-      data-cy="submit-btn"
     />
     <forgot-password-link />
   </q-form>
