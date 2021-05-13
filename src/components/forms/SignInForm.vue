@@ -9,16 +9,16 @@
     >
       <username-input
         v-model="username"
-        for="username-input"
+        data-cy="username-input"
       />
       <password-input
         v-model="password"
-        for="password-input"
+        data-cy="password-input"
       />
     </q-card>
     <submit-button
       :loading="showLoadingButton"
-      id="submit-btn"
+      data-cy="submit-btn"
     />
     <forgot-password-link />
   </q-form>
