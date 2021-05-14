@@ -2,6 +2,7 @@
   <q-form
     class="form-card"
     @submit="signIn"
+    data-cy="login-form"
   >
     <q-card
       bordered
@@ -9,16 +10,15 @@
     >
       <username-input
         v-model="username"
-        for="username-input"
+        data-cy="username-input"
       />
       <password-input
         v-model="password"
-        for="password-input"
+        data-cy="password-input"
       />
     </q-card>
     <submit-button
       :loading="showLoadingButton"
-      id="submit-btn"
     />
     <forgot-password-link />
   </q-form>
