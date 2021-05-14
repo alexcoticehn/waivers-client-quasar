@@ -41,8 +41,8 @@ const rows = [
     { team: "McJesus!", owner: "Jimmy Ghuman", odds: 16, rangeMax: 76 },
     { team: "Big Money", owner: "Peter Bohdal", odds: 12, rangeMax: 88 },
     { team: "Wet Dick Carters", owner: "Ian Carter", odds: 7, rangeMax: 95 },
-    { team: "Double Pennertration", owner: "Eric Wallin", odds: 3, rangeMax: 98 },
-    { team: "Team Too Good", owner: "Nathan Alvarez", odds: 2, rangeMax: 100 },
+    { team: "Double Pennertration", owner: "Eric Wallin", odds: 2, rangeMax: 100 },
+    { team: "Team Too Good", owner: "Nathan Alvarez", odds: 3, rangeMax: 98 },
     { team: "Dude, Where's Makar?", owner: "Chris Littomericzky", odds: 0, rangeMax: 101 },
     { team: "Wheeler? I Hardly Knew Her", owner: "Harrison Brown", odds: 0, rangeMax: 101 },
     { team: "Don't Be Saad", owner: "Dimitri Filipovic", odds: 0, rangeMax: 101 }
@@ -68,6 +68,7 @@ export default {
                     winningTeam = team;
                 }
             })
+
             this.$q.notify({
               type: 'positive',
               message: winningTeam.team + ' has won the 1st overall pick!',
