@@ -36,8 +36,8 @@ const columns = [
 ]
 
 const rows = [
-    { team: "Don't Toews Me, Bro", owner: "Alex Cotic-Ehn", odds: 40, rangeMax: 40 },
-    { team: "Bustin' Pumpkins", owner: "Michael Winter", odds: 20, rangeMax: 60 },
+    { team: "Don't Toews Me, Bro", owner: "Alex Cotic-Ehn", odds: 20, rangeMax: 60 },
+    { team: "Bustin' Pumpkins", owner: "Michael Winter", odds: 40, rangeMax: 40 },
     { team: "McJesus!", owner: "Jimmy Ghuman", odds: 16, rangeMax: 76 },
     { team: "Big Money", owner: "Peter Bohdal", odds: 12, rangeMax: 88 },
     { team: "Wet Dick Carters", owner: "Ian Carter", odds: 7, rangeMax: 95 },
