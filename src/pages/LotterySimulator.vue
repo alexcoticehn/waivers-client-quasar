@@ -20,11 +20,17 @@
           <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
         </q-card-section>
         <q-card-section class="q-pt-none">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
+          Team has won the first overall pick!
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          Team has won the second overall pick!
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          Team has won the third overall pick!
         </q-card-section>
 
         <q-card-actions align="right">
-          <q-btn flat label="OK" color="primary" v-close-popup />
+          <q-btn flat label="Run Lottery Again" color="primary" v-close-popup />
         </q-card-actions>
       </q-card>
     </q-dialog>
