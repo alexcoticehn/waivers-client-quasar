@@ -14,6 +14,20 @@
         />
       </q-form>
     </div>
+    <q-dialog v-model="lotteryResults">
+      <q-card>
+          <q-card-section>
+          <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis vel numquam exercitationem aut, natus minima, porro labore.
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="OK" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
     <div>
       <lottery-odds-table
         :rows='rows'
@@ -56,7 +70,8 @@ export default {
     data() {
         return {
             rows: rows,
-            columns: columns
+            columns: columns,
+            lotteryResults: false
         }
     },
     methods: {
@@ -69,11 +84,7 @@ export default {
                 }
             })
 
-            this.$q.notify({
-              type: 'positive',
-              message: winningTeam.team + ' has won the 1st overall pick!',
-              caption: "You may run the lottery as many times as you like"
-            })
+            this.lotteryResults = true;
         }
     }
 }
