@@ -20,13 +20,13 @@
           <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
         </q-card-section>
         <q-card-section class="q-pt-none">
-          Team has won the first overall pick!
+          {{ lotteryWinners[0] }} has won the first overall pick!
         </q-card-section>
         <q-card-section class="q-pt-none">
-          Team has won the second overall pick!
+          {{ lotteryWinners[1] }} has won the second overall pick!
         </q-card-section>
         <q-card-section class="q-pt-none">
-          Team has won the third overall pick!
+          {{ lotteryWinners[2] }} has won the third overall pick!
         </q-card-section>
 
         <q-card-actions align="right">
@@ -77,18 +77,27 @@ export default {
         return {
             rows: rows,
             columns: columns,
-            lotteryResults: false
+            lotteryResults: false,
+            lotteryWinners: []
         }
     },
     methods: {
         runLottery() {
-            const randomVal = Math.random() * 100;
-            let winningTeam = {rangeMax: 101};
-            rows.forEach((team) => {
-                if (randomVal < team.rangeMax && team.rangeMax < winningTeam.rangeMax) {
-                    winningTeam = team;
+            let winningTeam;
+            this.lotteryWinners = [];
+            let randomVal;
+            while (this.lotteryWinners.length < 3) {
+                winningTeam = {rangeMax: 101};
+                randomVal = Math.random() * 100;
+                rows.forEach((team) => {
+                    if (randomVal < team.rangeMax && team.rangeMax < winningTeam.rangeMax) {
+                        winningTeam = team;
+                    }
+                })
+                if (!this.lotteryWinners.includes(winningTeam.team)) {
+                    this.lotteryWinners.push(winningTeam.team);
                 }
-            })
+            }
 
             this.lotteryResults = true;
         }
