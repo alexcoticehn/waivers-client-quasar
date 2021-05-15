@@ -20,13 +20,34 @@
           <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
         </q-card-section>
         <q-card-section class="q-pt-none">
-          {{ lotteryWinners[0] }} has won the first overall pick!
+          1. {{ lotteryWinners[0] }}
         </q-card-section>
         <q-card-section class="q-pt-none">
-          {{ lotteryWinners[1] }} has won the second overall pick!
+          2. {{ lotteryWinners[1] }}
         </q-card-section>
         <q-card-section class="q-pt-none">
-          {{ lotteryWinners[2] }} has won the third overall pick!
+          3. {{ lotteryWinners[2] }}
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          4. {{ lotteryWinners[3] }}
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          5. {{ lotteryWinners[4] }}
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          6. {{ lotteryWinners[5] }}
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          7. {{ lotteryWinners[6] }}
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          8. Dude, Where's Makar?
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          9. Don't Be Saad
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          10. Wheeler? I Hardly Knew Her
         </q-card-section>
 
         <q-card-actions align="right">
@@ -86,7 +107,7 @@ export default {
             let winningTeam;
             this.lotteryWinners = [];
             let randomVal;
-            while (this.lotteryWinners.length < 3) {
+            while (this.lotteryWinners.length < 7) {
                 winningTeam = {rangeMax: 101};
                 randomVal = Math.random() * 100;
                 rows.forEach((team) => {
