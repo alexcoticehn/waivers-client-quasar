@@ -14,6 +14,26 @@
         />
       </q-form>
     </div>
+    <q-dialog v-model="lotteryResults">
+      <q-card>
+          <q-card-section>
+          <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          {{ lotteryWinners[0] }} has won the first overall pick!
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          {{ lotteryWinners[1] }} has won the second overall pick!
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          {{ lotteryWinners[2] }} has won the third overall pick!
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Run Lottery Again" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
     <div>
       <lottery-odds-table
         :rows='rows'
@@ -41,8 +61,8 @@ const rows = [
     { team: "McJesus!", owner: "Jimmy Ghuman", odds: 16, rangeMax: 76 },
     { team: "Big Money", owner: "Peter Bohdal", odds: 12, rangeMax: 88 },
     { team: "Wet Dick Carters", owner: "Ian Carter", odds: 7, rangeMax: 95 },
-    { team: "Double Pennertration", owner: "Eric Wallin", odds: 3, rangeMax: 98 },
-    { team: "Team Too Good", owner: "Nathan Alvarez", odds: 2, rangeMax: 100 },
+    { team: "Double Pennertration", owner: "Eric Wallin", odds: 2, rangeMax: 100 },
+    { team: "Team Too Good", owner: "Nathan Alvarez", odds: 3, rangeMax: 98 },
     { team: "Dude, Where's Makar?", owner: "Chris Littomericzky", odds: 0, rangeMax: 101 },
     { team: "Wheeler? I Hardly Knew Her", owner: "Harrison Brown", odds: 0, rangeMax: 101 },
     { team: "Don't Be Saad", owner: "Dimitri Filipovic", odds: 0, rangeMax: 101 }
@@ -56,23 +76,30 @@ export default {
     data() {
         return {
             rows: rows,
-            columns: columns
+            columns: columns,
+            lotteryResults: false,
+            lotteryWinners: []
         }
     },
     methods: {
         runLottery() {
-            const randomVal = Math.random() * 100;
-            let winningTeam = {rangeMax: 101};
-            rows.forEach((team) => {
-                if (randomVal < team.rangeMax && team.rangeMax < winningTeam.rangeMax) {
-                    winningTeam = team;
+            let winningTeam;
+            this.lotteryWinners = [];
+            let randomVal;
+            while (this.lotteryWinners.length < 3) {
+                winningTeam = {rangeMax: 101};
+                randomVal = Math.random() * 100;
+                rows.forEach((team) => {
+                    if (randomVal < team.rangeMax && team.rangeMax < winningTeam.rangeMax) {
+                        winningTeam = team;
+                    }
+                })
+                if (!this.lotteryWinners.includes(winningTeam.team)) {
+                    this.lotteryWinners.push(winningTeam.team);
                 }
-            })
-            this.$q.notify({
-              type: 'positive',
-              message: winningTeam.team + ' has won the 1st overall pick!',
-              caption: "You may run the lottery as many times as you like"
-            })
+            }
+
+            this.lotteryResults = true;
         }
     }
 }

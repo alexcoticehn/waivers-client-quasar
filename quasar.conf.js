@@ -117,7 +117,10 @@ module.exports = configure(function (/* ctx */) {
         'QToolbarTitle',
         'QForm',
         'Notify',
-        'QTable'
+        'QTable',
+        'QDialog',
+        'QCardSection',
+        'QCardActions'
       ]
     },
 
