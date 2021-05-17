@@ -6,6 +6,7 @@
     class="q-mt-sm full-width"
     no-caps
     size="md"
+    data-cy='forgot-password-link'
   />
 </template>
 
