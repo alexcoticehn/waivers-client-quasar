@@ -10,11 +10,9 @@
     >
       <username-input
         v-model="username"
-        data-cy="username-input"
       />
       <password-input
         v-model="password"
-        data-cy="password-input"
       />
     </q-card>
     <submit-button
