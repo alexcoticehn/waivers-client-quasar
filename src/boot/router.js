@@ -2,7 +2,9 @@ import { boot } from 'quasar/wrappers'
 
 export default boot(({ router, store }) => {
     router.beforeEach((to, from, next) => {
-        if (to.meta.requiresAuth && !store.state.session.isAuthenticated) {
+        if (to.meta.disabled) {
+            next({name: 'MyRoster'});
+        } else if (to.meta.requiresAuth && !store.state.session.isAuthenticated) {
             store.dispatch('session/verifyToken')
             .then(() => {
                 store.commit('session/setIsAuthenticated', true);

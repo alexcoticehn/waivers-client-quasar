@@ -3,6 +3,7 @@
     class="form-card"
     id="reset-password"
     @submit="resetPassword"
+    data-cy="reset-password-form"
   >
     <q-card
       bordered
