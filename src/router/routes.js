@@ -46,6 +46,10 @@ const routes = [
         component: () => import('pages/LotterySimulator.vue')
       }
     ]
+  },
+  {
+    path: '/:catchAll(.*)*',
+    redirect: { name: 'MyRoster' }
   }
 ]
 
