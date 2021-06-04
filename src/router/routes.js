@@ -44,6 +44,11 @@ const routes = [
           disabled: true
         },
         component: () => import('pages/LotterySimulator.vue')
+      },
+      {
+        path: '/standings',
+        name: 'Standings',
+        component: () => import('pages/Standings.vue')
       }
     ]
   },
