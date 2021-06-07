@@ -51,18 +51,22 @@
 const linksList = [
   {
     title: "Sailor Jerry's Discord",
-    caption: 'Communicate with the league',
     icon: 'forum',
     link: 'https://discord.com/channels/782649936264036383/'
   }
 ];
 
 const internalLinksList = [
-  {
+  /*{
     title: "Sailor Jerry's Lottery Simulator",
     caption: "Simulate the upcoming draft lottery",
     icon: 's_casino',
     routeName: 'LotterySimulator'
+  }*/
+  {
+    title: "Standings History",
+    icon: 's_list_alt',
+    routeName: 'Standings'
   }
 ]
 
