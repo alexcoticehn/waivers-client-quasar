@@ -1,7 +1,14 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-const api = axios.create({ baseURL: 'https://jailors.herokuapp.com/jailors/api/' })
+let jailors_url = 'https://jailors-staging.herokuapp.com/jailors/api/';
+
+if (process.env.BUILD_ENV === 'production')
+{
+  jailors_url = 'https://jailors.herokuapp.com/jailors/api/';
+}
+
+const api = axios.create({ baseURL: jailors_url });
 
 export default boot(({ app }) => {
   api.defaults.withCredentials = true;
