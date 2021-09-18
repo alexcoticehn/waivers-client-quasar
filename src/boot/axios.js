@@ -1,11 +1,11 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-let jailors_url = 'https://jailors-staging.herokuapp.com/jailors/api/';
+let jailors_url = `https://jailors-staging.herokuapp.com/jailors/api/${process.env.VUE_APP_BUILD_ENV}/${process.env.BUILD_ENV}/${process.env.NODE_ENV}`;
 
 if (process.env.VUE_APP_BUILD_ENV === 'production')
 {
-  jailors_url = 'https://jailors.herokuapp.com/jailors/api/';
+  jailors_url = `https://jailors.herokuapp.com/jailors/api/${process.env.VUE_APP_BUILD_ENV}/${process.env.BUILD_ENV}/${process.env.NODE_ENV}`;
 }
 
 const api = axios.create({ baseURL: jailors_url });
