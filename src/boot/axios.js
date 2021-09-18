@@ -3,7 +3,7 @@ import axios from 'axios'
 
 let jailors_url = 'https://jailors-staging.herokuapp.com/jailors/api/';
 
-if (process.env.secrets.BUILD_ENV === 'production')
+if (process.env.BUILD_ENV == 'production')
 {
   jailors_url = 'https://jailors.herokuapp.com/jailors/api/';
 }
