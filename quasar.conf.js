@@ -78,6 +78,9 @@ module.exports = configure(function (/* ctx */) {
         chain.plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
       },
+      env: {
+        APP_ENV: process.env.AWS_BRANCH == 'production-branch' ? 'production' : 'staging'
+      }
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
