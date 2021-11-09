@@ -148,7 +148,7 @@ module.exports = configure(function (/* ctx */) {
       manifest: {
         name: `Waivers Client`,
         short_name: `Waivers Client`,
-        description: `Front end for Sailor Jerry's Waivers App`,
+        description: `Sailor Jerry's Waivers App`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
