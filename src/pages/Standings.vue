@@ -35,17 +35,18 @@ export default {
     createStandingsBins(standings) {
       const standings_bin = {};
       standings.forEach(element => {
-        if (standings_bin[element.year._id] === undefined) {
-          standings_bin[element.year._id] = {}
+        let year_id = element.year._id;
+        if (standings_bin[year_id] === undefined) {
+          standings_bin[year_id] = {}
         }
-        standings_bin[element.year._id].start_date = element.year.startDate;
-        standings_bin[element.year._id].end_date = element.year.endDate;
+        standings_bin[year_id].start_date = element.year.startDate;
+        standings_bin[year_id].end_date = element.year.endDate;
 
-        if (standings_bin[element.year._id].teams === undefined) {
-          standings_bin[element.year._id].teams = [];
+        if (standings_bin[year_id].teams === undefined) {
+          standings_bin[year_id].teams = [];
         }
 
-        standings_bin[element.year._id].teams.push(element);
+        standings_bin[year_id].teams.push(element);
 
       });
 
