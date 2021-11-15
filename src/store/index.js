@@ -2,6 +2,7 @@ import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
 import session from './session'
 import history from './history'
+import data from './data'
 
 // import example from './module-example'
 
@@ -18,7 +19,8 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       session,
-      history
+      history,
+      data
     },
 
     // enable strict mode (adds overhead!)
