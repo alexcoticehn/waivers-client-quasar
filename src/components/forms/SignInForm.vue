@@ -63,7 +63,7 @@ export default {
             showLoadingButton.value = false;
             $q.notify({
               type: 'negative',
-              message: response.response.data.errors.message,
+              message: response.response.data.message,
               caption: "If the error persists, please contact your site administrator"
             })
         });
