@@ -1,4 +1,5 @@
-/*
-export function someAction (context) {
+import { api } from 'boot/axios';
+
+export function getTeamData () {
+    return api.get('teams');
 }
-*/
