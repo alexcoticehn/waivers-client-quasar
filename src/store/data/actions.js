@@ -1,5 +1,5 @@
 import { api } from 'boot/axios';
 
-export function getTeamData () {
+export function getTeams () {
     return api.get('teams');
 }

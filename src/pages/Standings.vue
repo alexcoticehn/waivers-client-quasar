@@ -19,13 +19,16 @@
       </div>
     </div>
     <div v-else>
-      Hey can I see this text???
+      <aggregate-standings-table 
+        :rows="aggregate_data"
+      />
     </div>
   </q-page>
 </template>
 
 <script>
 import StandingsTable from '../components/tables/StandingsTable.vue';
+import AggregateStandingsTable from 'src/components/tables/AggregateStandingsTable.vue';
 
 const options = [
   {
@@ -40,13 +43,15 @@ const options = [
 
 export default {
   components: {
-    StandingsTable   
+    StandingsTable,
+    AggregateStandingsTable
   },
   data() {
     return {
       years: null,
       history: true,
-      options: options
+      options: options,
+      aggregate_data: null
     }
   },
   mounted() {
@@ -54,6 +59,7 @@ export default {
       .then((res) => {
         const standings_bin = this.createStandingsBins(res.data.standings);
         this.years = this.createYears(standings_bin);
+        this.createAggregateData(res.data.standings);
       })
   },
   methods: {
@@ -95,6 +101,44 @@ export default {
         years.push(year);
       }
       return years;
+    },
+    createAggregateData(standings_data) {
+      const aggregate_data = [];
+      const aggregate_bins = {};
+      standings_data.forEach(element => {
+        let team_id = element.team;
+        if (aggregate_bins[team_id] == undefined) {
+          aggregate_bins[team_id] = {};
+        }
+        if (aggregate_bins[team_id].rotoPoints == undefined) {
+          aggregate_bins[team_id].rotoPoints = 0;
+        }
+        if (aggregate_bins[team_id].position == undefined) {
+          aggregate_bins[team_id].position = 0;
+        }
+        if (aggregate_bins[team_id].totalSeasons == undefined) {
+          aggregate_bins[team_id].totalSeasons = 0;
+        }
+        aggregate_bins[team_id].rotoPoints += element.points;
+        aggregate_bins[team_id].position += element.position;
+        aggregate_bins[team_id].totalSeasons++;
+      })
+
+      this.$store.dispatch('data/getTeams')
+        .then((res) => {
+          res.data.teams.forEach(element => {
+            let team_id = element._id;
+            let team_aggregate_data = {};
+            console.log(aggregate_bins[team_id].rotoPoints);
+            console.log(aggregate_bins[team_id].position);
+            team_aggregate_data.avgRotoPoints = aggregate_bins[team_id].rotoPoints / aggregate_bins[team_id].totalSeasons;
+            team_aggregate_data.avgPosition = aggregate_bins[team_id].position / aggregate_bins[team_id].totalSeasons;
+            team_aggregate_data.teamName = element.name;
+            team_aggregate_data.ownerName = element.owner.firstname + " " + element.owner.lastname;
+            aggregate_data.push(team_aggregate_data);
+          })
+          this.aggregate_data = aggregate_data;
+        })
     }
   }
 }
