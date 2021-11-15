@@ -3,11 +3,23 @@
     <h3 class="text-center">
         Standings History
     </h3>
-    <div v-for="year in years" :key="year.id" class="q-mb-lg">
-      <standings-table 
-        :title="year.header" 
-        :rows="year.teams"
+    <div class="q-ml-sm">
+      <q-option-group 
+        v-model="history"
+        :options="options"
+        inline
       />
+    </div>
+    <div v-if="history">
+      <div v-for="year in years" :key="year.id" class="q-mb-lg">
+        <standings-table 
+          :title="year.header" 
+          :rows="year.teams"
+        />
+      </div>
+    </div>
+    <div v-else>
+      Hey can I see this text???
     </div>
   </q-page>
 </template>
@@ -15,13 +27,26 @@
 <script>
 import StandingsTable from '../components/tables/StandingsTable.vue';
 
+const options = [
+  {
+    label: 'History',
+    value: true
+  },
+  {
+    label: 'Aggregate',
+    value: false
+  }
+]
+
 export default {
   components: {
     StandingsTable   
   },
   data() {
     return {
-      years: null
+      years: null,
+      history: true,
+      options: options
     }
   },
   mounted() {
