@@ -125,16 +125,14 @@ export default {
       })
 
       this.$store.dispatch('data/getTeams')
-        .then((res) => {
-          res.data.teams.forEach(element => {
-            let team_id = element._id;
+        .then((teams) => {
+          teams.forEach(element => {
+            let team_id = element.teamId;
             let team_aggregate_data = {};
-            console.log(aggregate_bins[team_id].rotoPoints);
-            console.log(aggregate_bins[team_id].position);
             team_aggregate_data.avgRotoPoints = aggregate_bins[team_id].rotoPoints / aggregate_bins[team_id].totalSeasons;
             team_aggregate_data.avgPosition = aggregate_bins[team_id].position / aggregate_bins[team_id].totalSeasons;
-            team_aggregate_data.teamName = element.name;
-            team_aggregate_data.ownerName = element.owner.firstname + " " + element.owner.lastname;
+            team_aggregate_data.teamName = element.teamName;
+            team_aggregate_data.ownerName = element.ownerName;
             aggregate_data.push(team_aggregate_data);
           })
           this.aggregate_data = aggregate_data;

@@ -1,4 +1,3 @@
-/*
-export function someMutation (state) {
+export const setTeams = (state, teams) => {
+    state.teams = teams;
 }
-*/
