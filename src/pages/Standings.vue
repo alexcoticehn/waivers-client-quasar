@@ -15,7 +15,7 @@
         />
       </q-form>
     </div>
-    <div v-if="history">
+    <div v-if="history === 'history'">
       <div v-for="year in years" :key="year.id" class="q-mb-lg">
         <standings-table 
           :title="year.header" 
@@ -38,11 +38,11 @@ import AggregateStandingsTable from 'src/components/tables/AggregateStandingsTab
 const options = [
   {
     label: 'History',
-    value: true
+    value: 'history'
   },
   {
     label: 'Aggregate',
-    value: false
+    value: 'aggregate'
   }
 ]
 
@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       years: null,
-      history: true,
+      history: 'history',
       options: options,
       aggregate_data: null
     }
