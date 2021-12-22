@@ -21,19 +21,20 @@
     "test:e2e:ci": "cross-env E2E_TEST=true start-test \"quasar dev\" http-get://localhost:8080 \"cypress run\""
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.12.2",
     "axios": "^0.21.1",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
-    "quasar": "^2.0.0-beta.1",
-    "serve-static": "^1.14.1"
+    "quasar": "^2.3.4",
+    "serve-static": "^1.14.1",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@quasar/app": "^3.0.0-beta.1",
-    "@quasar/quasar-app-extension-testing": "^1.0.3",
-    "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.0",
-    "@quasar/quasar-app-extension-testing-unit-jest": "^2.2.2",
+    "@quasar/app": "^3.2.5",
+    "@quasar/quasar-app-extension-testing": "^1.0.5",
+    "@quasar/quasar-app-extension-testing-e2e-cypress": "^3.1.1",
+    "@quasar/quasar-app-extension-testing-unit-jest": "^2.2.3",
     "babel-eslint": "^10.0.1",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
