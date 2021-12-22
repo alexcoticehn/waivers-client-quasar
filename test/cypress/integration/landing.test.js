@@ -3,6 +3,9 @@
 
 describe('Manual login tests', () => {
   beforeEach(() => {
+    cy.intercept('GET', '/auth/token/verify', {
+      statusCode: 404
+    });
     cy.visit('/');
   });
 
@@ -19,7 +22,7 @@ describe('Manual login tests', () => {
     cy.url().should('eql', Cypress.config().baseUrl + 'roster');
   });
 
-  it(('should reject failed login'), () => {
+  it('should reject failed login', () => {
     cy.intercept('POST', '/users/login', {
       statusCode: 401,
       body: {
@@ -39,7 +42,7 @@ describe('Manual login tests', () => {
 });
 
 describe('Auto Login', () => {
-  it(('should automatically log user in'), () => {
+  it('should automatically log user in', () => {
     cy.intercept('GET', '/auth/token/verify', {
       statusCode: 200
     });
@@ -49,10 +52,11 @@ describe('Auto Login', () => {
 });
 
 describe('Forgot Password Link', () => {
-  beforeEach(() => {
+  it('should take user to forgot password page', () => {
+    cy.intercept('GET', '/auth/token/verify', {
+      statusCode: 404
+    });
     cy.visit('/');
-  });
-  it(('should take user to forgot password page'), () => {
     cy.get('[data-cy=forgot-password-link]').click();
     cy.url().should('eql', Cypress.config().baseUrl + 'forgot');
   })
