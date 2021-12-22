@@ -4,11 +4,16 @@
         Standings History
     </h3>
     <div class="q-ml-sm">
-      <q-option-group 
-        v-model="history"
-        :options="options"
-        inline
-      />
+      <q-form
+        data-cy="standings-options-group"
+      >
+        <q-option-group 
+          name="standings-options"
+          v-model="history"
+          :options="options"
+          inline
+        />
+      </q-form>
     </div>
     <div v-if="history">
       <div v-for="year in years" :key="year.id" class="q-mb-lg">
