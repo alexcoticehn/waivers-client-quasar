@@ -23,7 +23,7 @@
         />
       </div>
     </div>
-    <div v-else>
+    <div v-else-if="history === 'aggregate'">
       <aggregate-standings-table 
         :rows="aggregate_data"
       />
