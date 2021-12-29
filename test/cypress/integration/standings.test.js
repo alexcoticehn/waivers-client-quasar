@@ -10,7 +10,8 @@ describe('Standings page tests', () => {
       fixture: 'teams.json'
     })
     cy.visit('/');
-    cy.visit('/standings');
+    cy.dataCy('menu-toggle').click();
+    cy.dataCy('standings-menu-link').click();
     dataCyRadio('standings-options-group').first().should('be.checked');
     cy.dataCy('yearly-standings-table').should('be.visible');
     cy.dataCy('aggregate-standings-table').should('not.exist');

@@ -8,6 +8,7 @@
         dense
         aria-label="menu"
         @click="toggleLeftDrawer"
+        data-cy="menu-toggle"
       />
       <q-toolbar-title class="text-center">
         Sailor Jerry's Fantasy Hockey League
@@ -32,6 +33,7 @@
           v-for='link in internalLinks'
           :key="link.title"
           v-bind="link"
+          :data-cy="link.dataCy"
         />
         <external-menu-link 
           v-for='link in menuLinks'
@@ -66,7 +68,8 @@ const internalLinksList = [
   {
     title: "Standings History",
     icon: 's_list_alt',
-    routeName: 'Standings'
+    routeName: 'Standings',
+    dataCy: 'standings-menu-link'
   }
 ]
 
