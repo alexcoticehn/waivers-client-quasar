@@ -49,6 +49,19 @@ const routes = [
         path: '/standings',
         name: 'Standings',
         component: () => import('pages/Standings.vue')
+      },
+      {
+        path: '/picks',
+        children: [
+          {
+            path: '/add',
+            name: 'AddDraftPicks',
+            meta: {
+              adminOnly: true
+            },
+            component: () => import('pages/AddDraftPicks.vue')
+          }
+        ]
       }
     ]
   },
