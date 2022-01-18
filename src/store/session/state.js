@@ -3,6 +3,7 @@ export default function () {
     isAuthenticated: false,
     passwordResetToken: '',
     userId: '',
-    firstName: ''
+    firstName: '',
+    isAdmin: false
   }
 }
