@@ -54,8 +54,9 @@ export default {
           username: username.value,
           password: password.value
         }})
-        .then(() => {
+        .then((res) => {
             $store.commit('session/setIsAuthenticated', true);
+            $store.commit('session/setIsAdmin', res.data.admin);
             Router.push({name: 'MyRoster'});
         })
         .catch((response) => {

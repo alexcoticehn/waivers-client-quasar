@@ -8,9 +8,7 @@ export default boot(({ router, store }) => {
             store.dispatch('session/verifyToken')
             .then((res) => {
                 store.commit('session/setIsAuthenticated', true);
-                if (res.body.admin) {
-                    store.commit('session/setIsAdmin', true);
-                }
+                store.commit('session/setIsAdmin', res.data.admin);
                 next();
             })
             .catch(() => {
