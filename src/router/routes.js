@@ -44,14 +44,32 @@ const routes = [
           disabled: true
         },
         component: () => import('pages/LotterySimulator.vue')
-      },
+      }
+    ]
+  },
+  {
+    path: '/standings',
+    component: () => import('layouts/MainLayout.vue'),
+    meta: {
+      requiresAuth: true
+    },
+    children: [
       {
-        path: '/standings',
+        path: '',
         name: 'Standings',
         component: () => import('pages/Standings.vue')
-      },
+      }
+    ]
+  },
+  {
+    path: '/picks',
+    component: () => import('layouts/MainLayout.vue'),
+    meta: {
+      requiresAuth: true
+    },
+    children: [
       {
-        path: '/picks/add',
+        path: '/add',
         name: 'AddDraftPicks',
         meta: {
           adminOnly: true
