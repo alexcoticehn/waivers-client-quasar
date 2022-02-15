@@ -22,10 +22,9 @@
 <script>
 import { useQuasar } from 'quasar';
 import SubmitButton from '../buttons/SubmitButton';
-import EmailInput from '../inputs/EmailInput';
+import EmailInput from '../inputs/text/EmailInput';
 import { ref } from 'vue';
 import { api } from 'boot/axios';
-import { Router } from '../../router/index';
 
 export default {
   name: 'SendResetEmailForm',
