@@ -41,13 +41,13 @@
           7. {{ lotteryWinners[6] }}
         </q-card-section>
         <q-card-section class="q-pt-none">
-          8. Dude, Where's Makar?
+          8. Big Money
         </q-card-section>
         <q-card-section class="q-pt-none">
-          9. Don't Be Saad
+          9. Dude, Where's Makar?
         </q-card-section>
         <q-card-section class="q-pt-none">
-          10. Wheeler? I Hardly Knew Her
+          10. Don't Be Saad
         </q-card-section>
 
         <q-card-actions align="right">
@@ -77,15 +77,15 @@ const columns = [
 ]
 
 const rows = [
-    { team: "Don't Toews Me, Bro", owner: "Alex Cotic-Ehn", odds: 20, rangeMax: 60 },
+    { team: "Rock Out With Your Dach Out", owner: "Alex Cotic-Ehn", odds: 16, rangeMax: 76 },
     { team: "Bustin' Pumpkins", owner: "Michael Winter", odds: 40, rangeMax: 40 },
-    { team: "McJesus!", owner: "Jimmy Ghuman", odds: 16, rangeMax: 76 },
-    { team: "Big Money", owner: "Peter Bohdal", odds: 12, rangeMax: 88 },
-    { team: "Wet Dick Carters", owner: "Ian Carter", odds: 7, rangeMax: 95 },
+    { team: "McJesus!", owner: "Jimmy Ghuman", odds: 20, rangeMax: 60 },
+    { team: "Big Money", owner: "Peter Bohdal", odds: 0, rangeMax: 101 },
+    { team: "The Wet Dick Carters", owner: "Ian Carter", odds: 3, rangeMax: 98 },
     { team: "Double Pennertration", owner: "Eric Wallin", odds: 2, rangeMax: 100 },
-    { team: "Team Too Good", owner: "Nathan Alvarez", odds: 3, rangeMax: 98 },
+    { team: "Team Too Good", owner: "Nathan Alvarez", odds: 12, rangeMax: 88 },
     { team: "Dude, Where's Makar?", owner: "Chris Littomericzky", odds: 0, rangeMax: 101 },
-    { team: "Wheeler? I Hardly Knew Her", owner: "Harrison Brown", odds: 0, rangeMax: 101 },
+    { team: "Wheeler? I Hardly Knew Her!", owner: "Harrison Brown", odds: 7, rangeMax: 95 },
     { team: "Don't Be Saad", owner: "Dimitri Filipovic", odds: 0, rangeMax: 101 }
 ]
 
