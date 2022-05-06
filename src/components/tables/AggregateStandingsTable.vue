@@ -1,5 +1,6 @@
 <template>
   <q-table 
+    data-cy="aggregate-standings-table"
     :columns='columns'
     hide-pagination
     :pagination='pagination'

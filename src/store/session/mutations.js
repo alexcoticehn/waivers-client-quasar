@@ -13,3 +13,6 @@ export const setUserId = (state, userId) => {
 export const setFirstName = (state, firstName) => {
     state.firstName = firstName;
 }
+ export const setIsAdmin = (state, isAdmin) => {
+     state.isAdmin = isAdmin;
+ }

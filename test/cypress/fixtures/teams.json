@@ -1,0 +1,104 @@
+{
+    "teams": [
+        {
+            "_id": "60ac6a9423f8334c0b67a022",
+            "name": "The Carters",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc6",
+                "firstname": "Ian",
+                "lastname": "Carter"
+            },
+            "name_prospect": "The Dry Carters"
+        },
+        {
+            "_id": "60ac6a9423f8334c0b67a023",
+            "name": "Bustin' Pumpkins",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc4",
+                "firstname": "Michael",
+                "lastname": "Winter"
+            },
+            "name_prospect": "Did I Stutzle?"
+        },
+        {
+            "_id": "60ac6a9423f8334c0b67a024",
+            "name": "McJesus!",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc8",
+                "firstname": "Jimmy",
+                "lastname": "Ghuman"
+            },
+            "name_prospect": "Sour Kaut"
+        },
+        {
+            "_id": "60ac6a9423f8334c0b67a025",
+            "name": "Big Money $$$",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc7",
+                "firstname": "Peter",
+                "lastname": "Bohdal"
+            },
+            "name_prospect": "Big Money"
+        },
+        {
+            "_id": "60ac6a9423f8334c0b67a026",
+            "name": "Team TOO GOOD",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc9",
+                "firstname": "Nathan",
+                "lastname": "Alvarez"
+            },
+            "name_prospect": "That Bean"
+        },
+        {
+            "_id": "60ac6a9423f8334c0b67a027",
+            "name": "Double",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc5",
+                "firstname": "Eric",
+                "lastname": "Wallin"
+            },
+            "name_prospect": "Jost"
+        },
+        {
+            "_id": "60ac6a9523f8334c0b67a028",
+            "name": "Dude, Where's Makar?",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc3",
+                "firstname": "Chris",
+                "lastname": "Littomericzky"
+            },
+            "name_prospect": "Kazakh Politics"
+        },
+        {
+            "_id": "60ac6a9523f8334c0b67a029",
+            "name": "Wheeler?",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc1",
+                "firstname": "Harrison",
+                "lastname": "Brown"
+            },
+            "name_prospect": "Broken Productions"
+        },
+        {
+            "_id": "60ac6a9523f8334c0b67a02a",
+            "name": "Don't Be Saad",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc0",
+                "firstname": "Dimitri",
+                "lastname": "Filipovic"
+            },
+            "name_prospect": "Just Wanna Have Dunn"
+        },
+        {
+            "_id": "60ac6a9523f8334c0b67a02b",
+            "name": "Don't Toews Me, Bro",
+            "owner": {
+                "_id": "60a49701a2087014cceeafc2",
+                "firstname": "Alex",
+                "lastname": "Cotic-Ehn"
+            },
+            "name_prospect": "God Pod"
+        }
+    ]
+}

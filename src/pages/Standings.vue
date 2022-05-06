@@ -4,13 +4,18 @@
         Standings History
     </h3>
     <div class="q-ml-sm">
-      <q-option-group 
-        v-model="history"
-        :options="options"
-        inline
-      />
+      <q-form
+        data-cy="standings-options-group"
+      >
+        <q-option-group 
+          name="standings-options"
+          v-model="history"
+          :options="options"
+          inline
+        />
+      </q-form>
     </div>
-    <div v-if="history">
+    <div v-if="history === 'history'">
       <div v-for="year in years" :key="year.id" class="q-mb-lg">
         <standings-table 
           :title="year.header" 
@@ -18,7 +23,7 @@
         />
       </div>
     </div>
-    <div v-else>
+    <div v-else-if="history === 'aggregate'">
       <aggregate-standings-table 
         :rows="aggregate_data"
       />
@@ -33,11 +38,11 @@ import AggregateStandingsTable from 'src/components/tables/AggregateStandingsTab
 const options = [
   {
     label: 'History',
-    value: true
+    value: 'history'
   },
   {
     label: 'Aggregate',
-    value: false
+    value: 'aggregate'
   }
 ]
 
@@ -49,7 +54,7 @@ export default {
   data() {
     return {
       years: null,
-      history: true,
+      history: 'history',
       options: options,
       aggregate_data: null
     }

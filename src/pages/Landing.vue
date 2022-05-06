@@ -14,11 +14,12 @@ export default {
   components: {
     SignInForm
   },
-  preFetch({ store, redirect}) {
+  preFetch({ store, redirect }) {
     Loading.show();
     return store.dispatch('session/verifyToken')
-    .then(() => {
+    .then((res) => {
       store.commit('session/setIsAuthenticated', true);
+      store.commit('session/setIsAdmin', res.data.admin);
       Loading.hide();
       redirect({name: 'MyRoster'});
     })

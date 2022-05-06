@@ -28,8 +28,8 @@ import { api } from 'boot/axios';
 import { Router } from '../../router/index';
 import { useQuasar } from 'quasar';
 import { useStore } from 'vuex'
-import PasswordInput from '../inputs/PasswordInput.vue';
-import UsernameInput from '../inputs/UsernameInput.vue';
+import PasswordInput from '../inputs/text/PasswordInput.vue';
+import UsernameInput from '../inputs/text/UsernameInput.vue';
 import SubmitButton from '../buttons/SubmitButton';
 import ForgotPasswordLink from '../buttons/ForgotPasswordLink.vue';
 
@@ -54,8 +54,9 @@ export default {
           username: username.value,
           password: password.value
         }})
-        .then(() => {
+        .then((res) => {
             $store.commit('session/setIsAuthenticated', true);
+            $store.commit('session/setIsAdmin', res.data.admin);
             Router.push({name: 'MyRoster'});
         })
         .catch((response) => {

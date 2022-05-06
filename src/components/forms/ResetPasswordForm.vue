@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import PasswordInput from '../inputs/PasswordInput';
+import PasswordInput from '../inputs/text/PasswordInput';
 import SubmitButton from '../buttons/SubmitButton';
 import { Router } from '../../router/index';
 import { ref } from 'vue';
