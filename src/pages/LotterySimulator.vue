@@ -16,7 +16,7 @@
     </div>
     <q-dialog v-model="lotteryResults">
       <q-card>
-          <q-card-section>
+        <q-card-section>
           <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
         </q-card-section>
         <q-card-section class="q-pt-none">
