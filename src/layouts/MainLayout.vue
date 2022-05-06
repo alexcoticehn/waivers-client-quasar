@@ -59,12 +59,12 @@ const linksList = [
 ];
 
 const internalLinksList = [
-  /*{
+  {
     title: "Sailor Jerry's Lottery Simulator",
     caption: "Simulate the upcoming draft lottery",
     icon: 's_casino',
     routeName: 'LotterySimulator'
-  }*/
+  },
   {
     title: "Standings History",
     icon: 's_list_alt',
