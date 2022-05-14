@@ -35,6 +35,9 @@ describe('Password Reset Tests', () => {
         cy.intercept('POST', '/users/reset/verify', {
             statusCode: 401
         });
+        cy.intercept('GET', '/auth/token/verify', {
+            statusCode: 404
+        });
         cy.visit('/reset/123');
         cy.url().should('eql', Cypress.config().baseUrl);
     });

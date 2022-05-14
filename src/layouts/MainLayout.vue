@@ -40,6 +40,11 @@
           :key="link.title"
           v-bind="link"
         />
+        <admin-menu-link 
+          v-for="link in adminLinks"
+          :key="link.title"
+          v-bind="link"
+        />
       </q-list>
     </q-drawer>
 
@@ -71,17 +76,28 @@ const internalLinksList = [
     routeName: 'Standings',
     dataCy: 'standings-menu-link'
   }
-]
+];
+
+const adminLinksList = [
+  {
+    title: "Add Draft Picks",
+    caption: "Add prospect draft results",
+    routeName: 'AddDraftPicks',
+    icon: "s_person_add"
+  }
+];
 
 import { defineComponent, ref } from 'vue'
 import InternalMenuLink from '../components/buttons/drawerMenu/InternalMenuLink.vue';
-import ExternalMenuLink from '../components/buttons/drawerMenu/ExternalMenuLink'
+import ExternalMenuLink from '../components/buttons/drawerMenu/ExternalMenuLink';
+import AdminMenuLink from '../components/buttons/drawerMenu/AdminMenuLink.vue'
 
 export default defineComponent({
   name: 'MainLayout',
   components: {
     ExternalMenuLink,
-    InternalMenuLink
+    InternalMenuLink,
+    AdminMenuLink
   },
   setup () {
     const leftDrawerOpen = ref(false)
@@ -89,6 +105,7 @@ export default defineComponent({
     return {
       menuLinks: linksList,
       internalLinks: internalLinksList,
+      adminLinks: adminLinksList,
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value

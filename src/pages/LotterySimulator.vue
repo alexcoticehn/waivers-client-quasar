@@ -16,7 +16,7 @@
     </div>
     <q-dialog v-model="lotteryResults">
       <q-card>
-          <q-card-section>
+        <q-card-section>
           <div class="text-h6">You have simulated the Sailor Jerry's Draft Lottery!</div>
         </q-card-section>
         <q-card-section class="q-pt-none">
@@ -77,9 +77,9 @@ const columns = [
 ]
 
 const rows = [
-    { team: "Rock Out With Your Dach Out", owner: "Alex Cotic-Ehn", odds: 16, rangeMax: 76 },
+    { team: "Rock Out With Your Dach Out", owner: "Alex Cotic-Ehn", odds: 20, rangeMax: 60 },
     { team: "Bustin' Pumpkins", owner: "Michael Winter", odds: 40, rangeMax: 40 },
-    { team: "McJesus!", owner: "Jimmy Ghuman", odds: 20, rangeMax: 60 },
+    { team: "McJesus!", owner: "Jimmy Ghuman", odds: 16, rangeMax: 76 },
     { team: "Big Money", owner: "Peter Bohdal", odds: 0, rangeMax: 101 },
     { team: "The Wet Dick Carters", owner: "Ian Carter", odds: 3, rangeMax: 98 },
     { team: "Double Pennertration", owner: "Eric Wallin", odds: 2, rangeMax: 100 },
