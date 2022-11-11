@@ -41,6 +41,7 @@ const routes = [
         path: '/simulator',
         name: 'LotterySimulator',
         meta: {
+          disabled: true
         },
         component: () => import('pages/LotterySimulator.vue')
       }
