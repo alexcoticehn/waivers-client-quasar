@@ -5,7 +5,7 @@ let jailors_url = 'https://o03g45wsza.execute-api.us-east-2.amazonaws.com/prod/j
 
 if (process.env.APP_ENV == 'production')
 {
-  jailors_url = 'https://jailors.herokuapp.com/jailors/api/'
+  jailors_url = 'https://o03g45wsza.execute-api.us-east-2.amazonaws.com/prod/jailors/api'
 }
 
 const api = axios.create({ baseURL: jailors_url });
