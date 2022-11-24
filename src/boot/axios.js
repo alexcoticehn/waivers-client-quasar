@@ -1,7 +1,7 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-let jailors_url = 'http://jailorsserver-env.eba-eqwj2iy4.us-east-2.elasticbeanstalk.com/jailors/api';
+let jailors_url = 'http://jailorsstagingserver-env.eba-qyctp9dj.us-east-2.elasticbeanstalk.com/';
 
 if (process.env.APP_ENV == 'production')
 {
