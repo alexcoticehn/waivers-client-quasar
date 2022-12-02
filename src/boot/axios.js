@@ -1,11 +1,11 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-let jailors_url = 'https://jailors-prod.us-east-2.elasticbeanstalk.com/jailors/api';
+let jailors_url = 'https://prod.jailorsonline.click/jailors/api';
 
 if (process.env.APP_ENV == 'production')
 {
-  jailors_url = 'https://jailors-prod.us-east-2.elasticbeanstalk.com/jailors/api'
+  jailors_url = 'https://prod.jailorsonline.click/jailors/api'
 }
 
 const api = axios.create({ baseURL: jailors_url });
