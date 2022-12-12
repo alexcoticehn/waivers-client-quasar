@@ -1,7 +1,7 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-let jailors_url = 'https://jailorsonline.click/jailors/api';
+let jailors_url = 'https://jailors-staging.herokuapp.com/jailors/api';
 
 if (process.env.APP_ENV == 'production')
 {
